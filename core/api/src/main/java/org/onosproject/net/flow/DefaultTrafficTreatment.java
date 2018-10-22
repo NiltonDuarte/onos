@@ -256,6 +256,10 @@ public final class DefaultTrafficTreatment implements TrafficTreatment {
                     .forEach(i -> add(i));
 
             clear = treatment.clearedDeferred();
+            table = treatment.tableTransition();
+            meta = treatment.writeMetadata();
+            meter = treatment.meters();
+            statTrigger = treatment.statTrigger();
         }
 
         @Override
@@ -539,7 +543,12 @@ public final class DefaultTrafficTreatment implements TrafficTreatment {
                     .forEach(i -> add(i));
 
             clear = treatment.clearedDeferred();
+            table = treatment.tableTransition();
+            meta = treatment.writeMetadata();
+            meter = treatment.meters();
+            statTrigger = treatment.statTrigger();
             current = previous;
+            
             return this;
         }
 
